@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "plugin-name/first-block",
+  "version": "1.0.0",
+  "title": "First block",
+  "category": "theme",
+  "icon": "format-aside",
+  "description": "First block description",
+  "supports": {
+	"html": false
+  },
+  "textdomain": "first-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
