@@ -43,7 +43,7 @@ class Core extends Loader {
 		//Load admin options functionality (optional)
 		self::set_options();
 
-		//Load internationalization functionality (optional)
+		//Load internationalization functionality
 		self::set_locale();
 
 		//Defines all hooks for the admin area (optional)
@@ -67,6 +67,11 @@ class Core extends Loader {
 		 * side of the site.
 		 */
 		using('inc/Blocks.php');
+		
+		/**
+		 * The class responsible for defining internationalization functionality
+		 */
+		using('inc/I18n.php');
 
 	}
 
