@@ -100,6 +100,7 @@ function view( $path ) : string {
 
 	$view = "";
 
+	//Include php file which has a variable named $view and equals to html output
 	include_once plugin_dir_path( dirname( __FILE__ ) ) . $path;
 
 	return $view;
