@@ -73,19 +73,38 @@ function request( $name ) {
 }
 
 /**
- * Returns a php page as a view
+ * Print a php page as a view
  * To return a view uses include_once() function
  *
  * @param string $path Path for view page
  *
  * @since 1.0.0
  */
-function return_view( $path ) {
+function print_view( $path ) {
 
 	include_once plugin_dir_path( dirname( __FILE__ ) ) . $path;
 
 }
 
+/**
+ * Returns an html variable as a view
+ * To return a view uses include_once() function
+ *
+ * @param string $path Path for view page
+ * @var string $view html output
+ * @return string $view
+ * @since 1.0.0
+ *
+ */
+function view( $path ) : string {
+
+	$view = "";
+
+	include_once plugin_dir_path( dirname( __FILE__ ) ) . $path;
+
+	return $view;
+
+}
 
 /**
  * Includes a class or function.
