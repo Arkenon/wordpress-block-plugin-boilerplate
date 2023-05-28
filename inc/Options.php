@@ -70,7 +70,7 @@ class Options {
 	 */
 	public function plugin_name_settings_page_html() {
 
-		$backend = new \PLUGIN_NAME\Backend();
+		$backend = new Backend();
 
 		//Get options page html output from Backend class
 		$backend->get_options_page();
