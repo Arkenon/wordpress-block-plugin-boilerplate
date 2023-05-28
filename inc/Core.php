@@ -16,7 +16,7 @@ namespace PLUGIN_NAME;
 // Exit if accessed directly.
 defined( 'ABSPATH' ) or die;
 
-using('inc/Loader.php');
+Helper::using('inc/Loader.php');
 
 class Core extends Loader {
 
@@ -39,12 +39,12 @@ class Core extends Loader {
 
 		//Load block types (required)
 		self::set_block_types();
-
+		
+		//Load internationalization functionality (required)
+		self::set_locale();
+		
 		//Load admin options functionality (optional)
 		self::set_options();
-
-		//Load internationalization functionality
-		self::set_locale();
 
 		//Defines all hooks for the admin area (optional)
 		self::define_admin_hooks();
@@ -66,12 +66,12 @@ class Core extends Loader {
 		 * The class responsible for registering block types
 		 * side of the site.
 		 */
-		using('inc/Blocks.php');
+		Helper::using('inc/Blocks.php');
 		
 		/**
 		 * The class responsible for defining internationalization functionality
 		 */
-		using('inc/I18n.php');
+		Helper::using('inc/I18n.php');
 
 	}
 
@@ -88,9 +88,9 @@ class Core extends Loader {
 		/**
 		 * The class responsible for admin options.
 		 */
-		using('inc/Options.php');
+		Helper::using('inc/Options.php');
 
-		$plugin_options = new \PLUGIN_NAME\Options();
+		$plugin_options = new Options();
 
 		self::add_action( 'plugins_loaded', $plugin_options, 'load_plugin_name_options' );
 
@@ -106,7 +106,7 @@ class Core extends Loader {
 	 */
 	private function set_block_types() {
 
-		$plugin_options = new \PLUGIN_NAME\Blocks();
+		$plugin_options = new Blocks();
 
 		self::add_action( 'plugins_loaded', $plugin_options, 'load_plugin_name_blocks' );
 
@@ -126,9 +126,9 @@ class Core extends Loader {
 		/**
 		 * The class responsible for defining internationalization functionality
 		 */
-		using('inc/I18n.php');
+		Helper::using('inc/I18n.php');
 
-		$plugin_i18n = new \PLUGIN_NAME\I18n();
+		$plugin_i18n = new I18n();
 
 		self::add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_name_textdomain' );
 
@@ -146,9 +146,9 @@ class Core extends Loader {
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		using('admin/Backend.php');
+		Helper::using('admin/Backend.php');
 
-		$plugin_admin = new \PLUGIN_NAME\Backend();
+		$plugin_admin = new Backend();
 
 		self::add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		self::add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -167,9 +167,9 @@ class Core extends Loader {
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 */
-		using('public/Frontend.php');
+		Helper::using('public/Frontend.php');
 
-		$plugin_public = new \PLUGIN_NAME\Frontend();
+		$plugin_public = new Frontend();
 
 		self::add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		self::add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
