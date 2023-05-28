@@ -17,9 +17,13 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) or die;
 
+use PLUGIN_NAME\Activator;
+use PLUGIN_NAME\Deactivator;
+use PLUGIN_NAME\Core;
+use PLUGIN_NAME\Helper;
 
 //Get helper functions at first.
-require plugin_dir_path( __FILE__ ) . 'inc/helpers.php';
+require plugin_dir_path( __FILE__ ) . 'inc/Helper.php';
 
 // Get plugin data
 $plugin_data = get_file_data(
@@ -41,9 +45,9 @@ define( 'PLUGIN_NAME_TEXT_DOMAIN', $plugin_data['text_domain'] );
  */
 function activate_plugin_name() {
 
-	using('inc/Activator.php');
+	Helper::using('inc/Activator.php');
 
-	\PLUGIN_NAME\Activator::activate();
+	Activator::activate();
 
 }
 
@@ -54,9 +58,9 @@ function activate_plugin_name() {
  */
 function deactivate_plugin_name() {
 
-	using('inc/Deactivator.php');
+	Helper::using('inc/Deactivator.php');
 
-	\PLUGIN_NAME\Deactivator::deactivate();
+	Deactivator::deactivate();
 
 }
 
@@ -71,7 +75,7 @@ register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, public-facing site hooks and more...
  */
-using('inc/Core.php');
+Helper::using('inc/Core.php');
 
 /**
  * Begins execution of the plugin.
@@ -82,6 +86,6 @@ using('inc/Core.php');
  *
  * @since    1.0.0
  */
-$plugin = new \PLUGIN_NAME\Core();
+$plugin = new Core();
 
 $plugin->run();
