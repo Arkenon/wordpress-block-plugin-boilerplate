@@ -98,6 +98,7 @@ class Helper {
 	 * To return a view uses include_once() function
 	 *
 	 * @param string $path Path for view page
+	 * @param array $block_attributes Get block attributes from block-name/edit.js
 	 *
 	 * @return string $view
 	 * @var string $view html output
