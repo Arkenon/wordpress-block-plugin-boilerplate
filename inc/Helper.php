@@ -22,7 +22,7 @@ class Helper {
 	 * @return array|string $str or array
 	 * @since 1.0.0
 	 */
-	private static function filter_request_string( $str ) {
+	private static function filter_request_string( string $str ) {
 
 		return is_array( $str ) ? array_map( [
 			'self',
@@ -39,7 +39,7 @@ class Helper {
 	 * @return mixed|null $_POST['name'] or null when !isset($_POST['name'])
 	 * @since 1.0.0
 	 */
-	public static function post( $name ) {
+	public static function post( string $name ) {
 
 		$_POST = array_map( [ 'self', 'filter_request_string' ], $_POST );
 
@@ -55,7 +55,7 @@ class Helper {
 	 * @return mixed|null $_GET['name'] or null when !isset($_GET['name'])
 	 * @since 1.0.0
 	 */
-	public static function get( $name ) {
+	public static function get( string $name ) {
 
 		$_GET = array_map( [ 'self', 'filter_request_string' ], $_GET );
 
@@ -71,7 +71,7 @@ class Helper {
 	 * @return mixed|null $_REQUEST['name'] or null when !isset($_REQUEST['name'])
 	 * @since 1.0.0
 	 */
-	public static function request( $name ) {
+	public static function request( string $name ) {
 
 		$_REQUEST = array_map( [ 'self', 'filter_request_string' ], $_REQUEST );
 
@@ -87,7 +87,7 @@ class Helper {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function print_view( $path ) {
+	public static function print_view( string $path ) {
 
 		include_once plugin_dir_path( dirname( __FILE__ ) ) . $path;
 
@@ -104,7 +104,7 @@ class Helper {
 	 * @since 1.0.0
 	 *
 	 */
-	public static function view( $path ): string {
+	public static function view( string $path ): string {
 
 		$view = "";
 
@@ -122,7 +122,7 @@ class Helper {
 	 *
 	 * @since 1.0.0
 	 */
-	public static function using( $path ) {
+	public static function using( string $path ) {
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . $path;
 
