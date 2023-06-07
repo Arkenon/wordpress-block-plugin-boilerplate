@@ -105,7 +105,7 @@ class Helper {
 	 * @since 1.0.0
 	 *
 	 */
-	public static function view( string $path, array $block_attributes = [] ): string {
+	public static function return_view( string $path, array $block_attributes = [] ): string {
 
 		$view = "";
 
