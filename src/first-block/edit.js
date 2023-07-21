@@ -45,15 +45,19 @@ export default function Edit(props) {
 	//Get block attributes from metadata
 	const {attributes} = props;
 	const blockProps = useBlockProps(props);
+
+	//Get translatable text from I118n
+	const text = I18n.hello_text.text;
 	
 	return (
 		<>
-			{/*Use control panel if you need*/}
-			{/*<Options options={props}/>*/}
+		
+			<Options options={props}/>
 		
 			<p {...blockProps}>
-				THIS IS FIRST BLOCK BACKEND
+				{__(text)}
 			</p>
+				
 		</>
 		
 	);
