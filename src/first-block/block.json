@@ -11,7 +11,7 @@
 	"html": false
   },
   "attributes": {
-	  "first-attr": {
+	  "firstAttr": {
 		"type": "boolean",
 		"default": false
 	  },
