@@ -6,6 +6,17 @@
 import { __ } from '@wordpress/i18n';
 
 /**
+ * Get translatable texts from I18n.json
+ */
+import I18n from "../../inc/I18n/I18n.json";
+
+/**
+ * Get control panel and options bar of the block.
+ */
+import Options from "./options";
+
+
+/**
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
@@ -29,10 +40,21 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit(props) {
+
+	//Get block attributes from metadata
+	const {attributes} = props;
+	const blockProps = useBlockProps(props);
+	
 	return (
-		<p { ...useBlockProps() }>
-			THIS IS FIRST BLOCK BACKEND
-		</p>
+		<>
+			{/*Use control panel if you need*/}
+			{/*<Options options={props}/>*/}
+		
+			<p {...blockProps}>
+				THIS IS FIRST BLOCK BACKEND
+			</p>
+		</>
+		
 	);
 }
