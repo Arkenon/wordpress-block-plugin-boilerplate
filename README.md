@@ -19,7 +19,12 @@ Then follow these steps:
 * Install dependencies `npm i`
 
 
+* Update packages `npm run packages-update`
+
+
 * Start plugin `npm start`
+
+
 
 ## Recommended Tools
 

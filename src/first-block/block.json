@@ -14,7 +14,7 @@
 	  "firstAttr": {
 		"type": "boolean",
 		"default": false
-	  },
+	  }
   },
   "textdomain": "first-block",
   "editorScript": "file:./index.js",
