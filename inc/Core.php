@@ -71,7 +71,7 @@ class Core extends Loader {
 		/**
 		 * The class responsible for defining internationalization functionality
 		 */
-		Helper::using('inc/I18n.php');
+		Helper::using('inc/I18n/I18n.php');
 
 	}
 
