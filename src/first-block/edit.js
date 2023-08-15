@@ -6,11 +6,6 @@
 import { __ } from '@wordpress/i18n';
 
 /**
- * Get translatable texts from I18n.json
- */
-import I18n from "../../inc/I18n/I18n.json";
-
-/**
  * Get control panel and options bar of the block.
  */
 import Options from "./options";
@@ -45,9 +40,6 @@ export default function Edit(props) {
 	//Get block attributes from metadata
 	const {attributes} = props;
 	const blockProps = useBlockProps(props);
-
-	//Get translatable text from I118n
-	const text = I18n.hello_text.text;
 	
 	return (
 		<>
@@ -55,7 +47,7 @@ export default function Edit(props) {
 			<Options options={props}/>
 		
 			<p {...blockProps}>
-				{__(text)}
+				{__("First Block: Hello from backend...")}
 			</p>
 				
 		</>

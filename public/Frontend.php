@@ -13,6 +13,8 @@
 namespace PLUGIN_NAME;
 
 // Exit if accessed directly.
+use FLWGB\Helper;
+
 defined( 'ABSPATH' ) or die;
 
 class Frontend {
@@ -36,7 +38,7 @@ class Frontend {
 		 * class.
 		 */
 
-		wp_enqueue_style( PLUGIN_NAME_TEXT_DOMAIN, plugin_dir_url( __FILE__ ) . 'css/public.css', array(), PLUGIN_NAME_VERSION, 'all' );
+		wp_enqueue_style( "plugin-name-public-css", plugin_dir_url( __FILE__ ) . 'css/public.css', array(), PLUGIN_NAME_VERSION, 'all' );
 
 	}
 
@@ -59,7 +61,24 @@ class Frontend {
 		 * class.
 		 */
 
-		wp_enqueue_script( PLUGIN_NAME_TEXT_DOMAIN, plugin_dir_url( __FILE__ ) . 'js/public.js', array( 'jquery' ), PLUGIN_NAME_VERSION, false );
+		wp_enqueue_script( "plugin-name-public-js", plugin_dir_url( __FILE__ ) . 'js/public.js', array( 'jquery' ), PLUGIN_NAME_VERSION, false );
 
 	}
+
+	/**
+	 * Html render for a block
+	 *
+	 * @param array $path Path of .php file which has html output
+	 * @param array $block_attributes Get block attributes from block-name/edit.js
+	 *
+	 * @return string Block's html output
+	 * @since    1.0.0
+	 */
+	public function first_block_render(string $path, array $block_attributes) : string  {
+
+		//Return html output of the block
+		return Helper::return_view( $path, $block_attributes );
+
+	}
+
 }

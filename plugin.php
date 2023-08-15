@@ -29,14 +29,12 @@ require plugin_dir_path( __FILE__ ) . 'inc/Helper.php';
 $plugin_data = get_file_data(
 	__FILE__,
 	array(
-		'version'     => 'Version',
-		'text_domain' => 'Text Domain'
+		'version'     => 'Version'
 	)
 );
 
 //Constants
 define( 'PLUGIN_NAME_VERSION', $plugin_data['version'] );
-define( 'PLUGIN_NAME_TEXT_DOMAIN', $plugin_data['text_domain'] );
 
 /**
  * The code that runs during plugin activation.

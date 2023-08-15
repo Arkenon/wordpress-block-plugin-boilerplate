@@ -30,7 +30,7 @@ class Backend {
 	 */
 	public function enqueue_styles() {
 
-		wp_enqueue_style( PLUGIN_NAME_TEXT_DOMAIN, plugin_dir_url( __FILE__ ) . 'css/admin.css', array(), PLUGIN_NAME_VERSION, 'all' );
+		wp_enqueue_style( "plugin-name-admin-css", plugin_dir_url( __FILE__ ) . 'css/admin.css', array(), PLUGIN_NAME_VERSION, 'all' );
 
 	}
 	
@@ -54,7 +54,7 @@ class Backend {
 
 		
 
-		wp_enqueue_script( PLUGIN_NAME_TEXT_DOMAIN, plugin_dir_url( __FILE__ ) . 'js/admin.js', array( 'jquery' ), PLUGIN_NAME_VERSION, false );
+		wp_enqueue_script( "plugin-name-admin-js", plugin_dir_url( __FILE__ ) . 'js/admin.js', array( 'jquery' ), PLUGIN_NAME_VERSION, false );
 
 	}
 

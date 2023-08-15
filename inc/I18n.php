@@ -26,7 +26,7 @@ class I18n {
 	public function load_plugin_name_textdomain() {
 
 		load_plugin_textdomain(
-			PLUGIN_NAME_TEXT_DOMAIN,
+			"plugin-name",
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

@@ -51,11 +51,21 @@ class Blocks {
 	/**
 	 * Callback function for first block
 	 *
+	 * @param string $path Path of .php file which has html output
+	 * @param array $block_attributes Get block attributes from block-name/edit.js
+	 *
 	 * @return string First block template html
 	 * @since    1.0.0
 	 */
-	public function first_block_render_callback(): string {
-		return "<p>This is first block...</p>";
+	public function first_block_render_callback(string $path, array $block_attributes): string {
+
+		Helper::using('public/Frontend.php');
+
+		$frontend = new Frontend();
+
+		return $frontend->first_block_render($path, $block_attributes);
+
+
 	}
 
 }

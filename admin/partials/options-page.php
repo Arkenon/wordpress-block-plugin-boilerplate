@@ -12,7 +12,7 @@
 
 <div class="wrap">
 	<h1>
-		<?php echo esc_html_x( get_admin_page_title(), 'Admin page title', PLUGIN_NAME_TEXT_DOMAIN ); ?>
+		<?php echo esc_html_x( get_admin_page_title(), 'Admin page title', "plugin-name" ); ?>
 	</h1>
 	<form method="post" action="options.php">
 		<?php settings_fields( 'plugin-name-settings-group' ); ?>
@@ -20,7 +20,7 @@
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<?php echo esc_html_x( 'Plugin settings one', 'Plugin settings one', PLUGIN_NAME_TEXT_DOMAIN ); ?>
+					<?php echo esc_html_x( 'Plugin settings one', 'plugin_settings_1_title', "plugin-name" ); ?>
 				</th>
 				<td>
 					<input type="text" name="plugin_name_settings_one"
@@ -29,7 +29,7 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php echo esc_html_x( 'Plugin settings two', 'Plugin settings two', PLUGIN_NAME_TEXT_DOMAIN ); ?>
+					<?php echo esc_html_x( 'Plugin settings two', 'plugin_settings_2_title', "plugin-name" ); ?>
 				</th>
 				<td>
 					<input type="text" name="plugin_name_settings_two"

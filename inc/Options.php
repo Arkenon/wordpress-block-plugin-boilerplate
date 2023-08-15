@@ -56,10 +56,10 @@ class Options {
 	public function plugin_name_register_settings() {
 
 		// Register settings group for Logout operation
-		register_setting( 'plugin-name-settings-group', 'plugin_name_settings_one', 'sanitize_text_field' );
+		register_setting( 'plugin-name-settings-group', 'plugin_name_settings_one');
 
 		// Register settings group for Login operation
-		register_setting( 'plugin-name-settings-group', 'plugin_name_settings_two', 'sanitize_text_field' );
+		register_setting( 'plugin-name-settings-group', 'plugin_name_settings_two' );
 
 	}
 
