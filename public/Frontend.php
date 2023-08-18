@@ -13,8 +13,6 @@
 namespace PLUGIN_NAME;
 
 // Exit if accessed directly.
-use FLWGB\Helper;
-
 defined( 'ABSPATH' ) or die;
 
 class Frontend {

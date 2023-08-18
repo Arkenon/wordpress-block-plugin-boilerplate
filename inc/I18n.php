@@ -33,41 +33,4 @@ class I18n {
 
 	}
 
-  /**
-	 * Get translatable text from I18n.json file
-	 *
-	 * @return array $get_json Array of translatable texts
-	 *
-	 * @since    1.0.0
-	 */
-	protected static function get_translatable_texts(): array {
-
-		$get_json = file_get_contents( plugin_dir_path( dirname( __FILE__ ) ) . '/I18n/I18n.json' );
-
-		return json_decode( $get_json, true );
-
-	}
-
-	/**
-	 * Create an object for translatable texts
-	 *
-	 * @param string $text Translatable text name
-	 *
-	 * @return TranslatableText Object of translatable text
-	 *
-	 * @since    1.0.0
-	 */
-	public static function text( string $text ): TranslatableText {
-
-		Helper::using('inc/I18n/TranslatableText.php');
-
-		$texts = new TranslatableText();
-
-		$texts->text    = self::get_translatable_texts()[ $text ]['text'];
-		$texts->context = self::get_translatable_texts()[ $text ]['context'];
-
-		return $texts;
-
-	}
-
 }

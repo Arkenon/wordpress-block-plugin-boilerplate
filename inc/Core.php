@@ -169,7 +169,6 @@ class Core extends Loader {
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 */
-		Helper::using('public/Frontend.php');
 
 		$plugin_public = new Frontend();
 

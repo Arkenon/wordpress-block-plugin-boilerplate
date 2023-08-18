@@ -112,6 +112,9 @@ class Helper {
 
 		$view = "";
 
+		//Get attributes
+		$form_attributes = $block_attributes;
+
 		//Include php file which has a variable named $view and equals to html output
 		include_once plugin_dir_path( dirname( __FILE__ ) ) . $path;
 
