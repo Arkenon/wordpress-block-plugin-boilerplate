@@ -14,6 +14,9 @@
 	<h1>
 		<?php echo esc_html_x( get_admin_page_title(), 'Admin page title', "plugin-name" ); ?>
 	</h1>
+
+	<?php settings_errors(); ?>
+
 	<form method="post" action="options.php">
 		<?php settings_fields( 'plugin-name-settings-group' ); ?>
 		<?php do_settings_sections( 'plugin-name-settings-group' ); ?>
