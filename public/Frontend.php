@@ -72,7 +72,7 @@ class Frontend {
 	 * @return string Block's html output
 	 * @since    1.0.0
 	 */
-	public function first_block_render(string $path, array $block_attributes) : string  {
+	public function get_rendered_block(string $path, array $block_attributes) : string  {
 
 		//Return html output of the block
 		return Helper::return_view( $path, $block_attributes );
