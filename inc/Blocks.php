@@ -41,7 +41,7 @@ class Blocks {
 			plugin_dir_path( dirname( __FILE__ ) ). '/build/first-block'
 			/*,
 			[
-				//Callback function for your block (optional)
+				//Callback function for your block (optional, use this callback if you want to make server side rendering)
 				'render_callback' => [ $this, 'first_block_render_callback' ]
 			]*/
 		);
@@ -51,19 +51,18 @@ class Blocks {
 	/**
 	 * Callback function for first block
 	 *
-	 * @param string $path Path of .php file which has html output
 	 * @param array $block_attributes Get block attributes from block-name/edit.js
 	 *
 	 * @return string First block template html
 	 * @since    1.0.0
 	 */
-	public function first_block_render_callback(string $path, array $block_attributes): string {
+	public function first_block_render_callback(array $block_attributes): string {
 
 		Helper::using('public/Frontend.php');
 
 		$frontend = new Frontend();
 
-		return $frontend->first_block_render($path, $block_attributes);
+		return $frontend->get_rendered_block('public/partials/first-block-render.php', $block_attributes);
 
 
 	}
