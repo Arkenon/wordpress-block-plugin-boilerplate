@@ -24,7 +24,9 @@ Then follow these steps:
 
 * Start plugin `npm start`
 
-Note: 'npm start' builds your blocks automatically, but sometimes you need to stop the hot reload and rebuild the blocks. Use `npm run build` to build your plugin.
+
+* Build for production `npm build`
+
 
 ## Recommended Tools
 
