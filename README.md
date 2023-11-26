@@ -13,7 +13,7 @@ Then follow these steps:
 * change `plugin_name` to `example_me`
 * change `plugin-name` to `example-me`
 * change `Plugin_Name` to `Example_Me`
-* change `PLUGIN_NAME_` to `EXAMPLE_ME_`
+* change `PLUGIN_NAME` to `EXAMPLE_ME`
 
 
 * Install dependencies `npm i`
