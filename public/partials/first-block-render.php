@@ -1,6 +1,6 @@
 <?php
 
-$first_attr = $form_attributes['firstAttr'];
+$first_attr = $block_attributes['firstAttr'] ?? '';
 
 $view = '<p '.get_block_wrapper_attributes().'>';
 

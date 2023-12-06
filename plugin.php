@@ -17,24 +17,20 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) or die;
 
-use PLUGIN_NAME\Activator;
-use PLUGIN_NAME\Deactivator;
-use PLUGIN_NAME\Core;
-use PLUGIN_NAME\Helper;
+use PLUGIN_NAME\Plugin_Name_Activator;
+use PLUGIN_NAME\Plugin_Name_Deactivator;
+use PLUGIN_NAME\Plugin_Name_Core;
+use PLUGIN_NAME\Plugin_Name_Helper;
+
+// Define constants
+$plugin_data = get_file_data( __FILE__, array( 'version'     => 'Version' ) );
+define( 'PLUGIN_NAME_VERSION', $plugin_data['version'] );
+define( 'PLUGIN_NAME_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'PLUGIN_NAME_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 //Get helper functions at first.
-require plugin_dir_path( __FILE__ ) . 'inc/Helper.php';
+require PLUGIN_NAME_PLUGIN_PATH . 'inc/class-plugin-name-helper.php';
 
-// Get plugin data
-$plugin_data = get_file_data(
-	__FILE__,
-	array(
-		'version'     => 'Version'
-	)
-);
-
-//Constants
-define( 'PLUGIN_NAME_VERSION', $plugin_data['version'] );
 
 /**
  * The code that runs during plugin activation.
@@ -43,9 +39,9 @@ define( 'PLUGIN_NAME_VERSION', $plugin_data['version'] );
  */
 function activate_plugin_name() {
 
-	Helper::using('inc/Activator.php');
+	Plugin_Name_Helper::using('inc/class-plugin-name-activator.php');
 
-	Activator::activate();
+	Plugin_Name_Activator::activate();
 
 }
 
@@ -56,9 +52,9 @@ function activate_plugin_name() {
  */
 function deactivate_plugin_name() {
 
-	Helper::using('inc/Deactivator.php');
+	Plugin_Name_Helper::using('inc/class-plugin-name-deactivator.php');
 
-	Deactivator::deactivate();
+	Plugin_Name_Deactivator::deactivate();
 
 }
 
@@ -73,7 +69,7 @@ register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, public-facing site hooks and more...
  */
-Helper::using('inc/Core.php');
+Plugin_Name_Helper::using('inc/class-plugin-name-core.php');
 
 /**
  * Begins execution of the plugin.
@@ -84,6 +80,6 @@ Helper::using('inc/Core.php');
  *
  * @since    1.0.0
  */
-$plugin = new Core();
+$plugin = new Plugin_Name_Core();
 
 $plugin->run();

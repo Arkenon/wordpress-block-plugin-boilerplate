@@ -27,6 +27,16 @@ Then follow these steps:
 
 * Build for production `npm build`
 
+## How to Register Blocks?
+
+The boilerplate use "/src" folder to create blocks (via @wordpress-scripts package). There is a sample block in "src" folder. You can modify this ore create another custom block.
+
+To register a block:
+1) Build your blocks with the "npm run build" command (Make sure your current root is equal to the root of the plugin in the terminal) This command builds all blocks in "src" folder.
+2) Go to "inc/class-plugin-name-blocks.php"
+3) Register your blocks in the register_plugin_name_blocks() method via the register_block_type() function. To learn more about the Register_block_type() function, visit https://developer.wordpress.org/reference/functions/register_block_type/)
+
+If you want to watch changes in your block you can use 'npm start' command and see the changes immediately.
 
 ## Recommended Tools
 

@@ -15,14 +15,14 @@ namespace PLUGIN_NAME;
 // Exit if accessed directly.
 defined( 'ABSPATH' ) or die;
 
-class Frontend {
+class Plugin_Name_Public {
 
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles(): void {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -36,7 +36,7 @@ class Frontend {
 		 * class.
 		 */
 
-		wp_enqueue_style( "plugin-name-public-css", plugin_dir_url( __FILE__ ) . 'css/public.css', array(), PLUGIN_NAME_VERSION, 'all' );
+		wp_enqueue_style( "plugin-name-public-stles", PLUGIN_NAME_PLUGIN_URL . 'public/css/plugin-name-public.css', array(), PLUGIN_NAME_VERSION, 'all' );
 
 	}
 
@@ -45,7 +45,7 @@ class Frontend {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts(): void {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -59,7 +59,7 @@ class Frontend {
 		 * class.
 		 */
 
-		wp_enqueue_script( "plugin-name-public-js", plugin_dir_url( __FILE__ ) . 'js/public.js', array( 'jquery' ), PLUGIN_NAME_VERSION, false );
+		wp_enqueue_script( "plugin-name-public-scripts", PLUGIN_NAME_PLUGIN_URL . 'public/js/plugin-name-public.js', array( 'jquery' ), PLUGIN_NAME_VERSION, false );
 
 	}
 
@@ -75,7 +75,7 @@ class Frontend {
 	public function get_rendered_block(string $path, array $block_attributes) : string  {
 
 		//Return html output of the block
-		return Helper::return_view( $path, $block_attributes );
+		return Plugin_Name_Helper::return_view( $path, $block_attributes );
 
 	}
 

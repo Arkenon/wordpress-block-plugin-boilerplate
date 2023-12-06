@@ -22,39 +22,38 @@ namespace PLUGIN_NAME;
 // Exit if accessed directly.
 defined( 'ABSPATH' ) or die;
 
-class Backend {
+class Plugin_Name_Admin {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles(): void {
 
-		wp_enqueue_style( "plugin-name-admin-css", plugin_dir_url( __FILE__ ) . 'css/admin.css', array(), PLUGIN_NAME_VERSION, 'all' );
+		wp_enqueue_style( "plugin-name-admin-styles", PLUGIN_NAME_PLUGIN_URL . 'admin/css/plugin-name-admin.css', array(), PLUGIN_NAME_VERSION, 'all' );
 
 	}
-	
+
 	/**
 	 * Register the stylesheets for the block editor (Common styles).
 	 *
 	 * @since    1.0.0
 	 */
-	public function editor_styles() {
+	public function editor_styles(): void {
 
-		add_editor_style( array( plugin_dir_url( __FILE__ ) . 'css/editor.css' ) );
+		add_editor_style( array( PLUGIN_NAME_PLUGIN_URL . 'admin/css/plugin-name-editor.css' ) );
 
 	}
-	
+
 	/**
 	 * Register the JavaScript for the admin area.
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts(): void {
 
-		
 
-		wp_enqueue_script( "plugin-name-admin-js", plugin_dir_url( __FILE__ ) . 'js/admin.js', array( 'jquery' ), PLUGIN_NAME_VERSION, false );
+		wp_enqueue_script( "plugin-name-admin-scripts", PLUGIN_NAME_PLUGIN_URL . 'admin/js/plugin-name-admin.js', array( 'jquery' ), PLUGIN_NAME_VERSION, false );
 
 	}
 
@@ -63,10 +62,10 @@ class Backend {
 	 *
 	 * @since    1.0.0
 	 */
-	public function get_options_page()  {
+	public function get_options_page(): void {
 
 		//Include options page html template from options_page.php
-		Helper::print_view('admin/partials/options-page.php');
+		Plugin_Name_Helper::print_view( 'admin/partials/options-page.php' );
 
 	}
 }

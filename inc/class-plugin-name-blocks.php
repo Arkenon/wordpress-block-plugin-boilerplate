@@ -16,14 +16,14 @@ namespace PLUGIN_NAME;
 // Exit if accessed directly.
 defined( 'ABSPATH' ) or die;
 
-class Blocks {
+class Plugin_Name_Blocks {
 
 	/**
 	 * Loader function for blocks
 	 *
 	 * @since    1.0.0
 	 */
-	public function load_plugin_name_blocks() {
+	public function load_plugin_name_blocks(): void {
 
 		add_action( 'init', [ $this, 'register_plugin_name_blocks' ] );
 
@@ -34,11 +34,11 @@ class Blocks {
 	 *
 	 * @since    1.0.0
 	 */
-	public function register_plugin_name_blocks() {
+	public function register_plugin_name_blocks(): void {
 
 		//First Block
 		register_block_type(
-			plugin_dir_path( dirname( __FILE__ ) ). '/build/first-block'
+			PLUGIN_NAME_PLUGIN_PATH. '/build/first-block'
 			/*,
 			[
 				//Callback function for your block (optional, use this callback if you want to make server side rendering)
@@ -58,11 +58,11 @@ class Blocks {
 	 */
 	public function first_block_render_callback(array $block_attributes): string {
 
-		Helper::using('public/Frontend.php');
+		Plugin_Name_Helper::using('public/class-plugin-name-public.php');
 
-		$frontend = new Frontend();
+		$public = new Plugin_Name_Public();
 
-		return $frontend->get_rendered_block('public/partials/first-block-render.php', $block_attributes);
+		return $public->get_rendered_block('public/partials/first-block-render.php', $block_attributes);
 
 
 	}

@@ -14,7 +14,7 @@ namespace PLUGIN_NAME;
 // Exit if accessed directly.
 defined( 'ABSPATH' ) or die;
 
-class Deactivator {
+class Plugin_Name_Deactivator {
 
 	/**
 	 * This is plugin deactivator.
@@ -23,7 +23,7 @@ class Deactivator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function deactivate() {
+	public static function deactivate(): void {
 
 	}
 }

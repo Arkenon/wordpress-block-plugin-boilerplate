@@ -14,7 +14,7 @@ namespace PLUGIN_NAME;
 // Exit if accessed directly.
 defined( 'ABSPATH' ) or die;
 
-class Activator {
+class Plugin_Name_Activator {
 
 	/**
 	 * This is plugin activator.
@@ -23,7 +23,7 @@ class Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
+	public static function activate(): void {
 
 	}
 }

@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) or die;
  * @package    Plugin_Name
  * @subpackage Plugin_Name/inc
  */
-class I18n {
+class Plugin_Name_I18n {
 
 
 	/**
@@ -23,12 +23,12 @@ class I18n {
 	 *
 	 * @since    1.0.0
 	 */
-	public function load_plugin_name_textdomain() {
+	public function load_plugin_name_textdomain(): void {
 
 		load_plugin_textdomain(
 			"plugin-name",
 			false,
-			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
+			PLUGIN_NAME_PLUGIN_PATH . 'languages/'
 		);
 
 	}
