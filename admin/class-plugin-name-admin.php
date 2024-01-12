@@ -19,8 +19,7 @@
 
 namespace PLUGIN_NAME;
 
-// Exit if accessed directly.
-defined( 'ABSPATH' ) or die;
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Plugin_Name_Admin {
 	/**

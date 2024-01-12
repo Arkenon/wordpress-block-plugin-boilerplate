@@ -12,8 +12,7 @@
 
 namespace PLUGIN_NAME;
 
-// Exit if accessed directly.
-defined( 'ABSPATH' ) or die;
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Plugin_Name_Helper {
 
@@ -27,13 +26,20 @@ class Plugin_Name_Helper {
 	 */
 	public static function sanitize( string $name, string $method, string $type = "" ) {
 
-		$value = $method == 'post' ? $_POST[ $name ] : $_GET[ $name ];
+		$value = '';
+
+		if ($method == 'post') {
+			if (isset($_POST[$name])) {
+				$value = sanitize_text_field($_POST[$name]);
+			}
+		} else {
+			if (isset($_GET[$name])) {
+				$value = sanitize_text_field($_GET[$name]);
+			}
+		}
 
 		if ( isset( $value ) ) {
 			switch ( $type ) {
-				case "text":
-					return sanitize_text_field( $value );
-					break;
 				case "title":
 					return sanitize_title( $value );
 					break;
@@ -44,7 +50,7 @@ class Plugin_Name_Helper {
 					return sanitize_textarea_field( $value );
 					break;
 				case "url":
-					return sanitize_url( $value );
+					return esc_url_raw( $value );
 					break;
 				case "email":
 					return sanitize_email( $value );
@@ -58,6 +64,7 @@ class Plugin_Name_Helper {
 		}
 
 		return null;
+
 	}
 
 	/**

@@ -2,8 +2,7 @@
 
 namespace PLUGIN_NAME;
 
-// Exit if accessed directly.
-defined( 'ABSPATH' ) or die;
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * Register all actions and filters for the plugin.

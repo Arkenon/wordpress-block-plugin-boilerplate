@@ -8,6 +8,9 @@
  * @package    Plugin_Name
  * @subpackage Plugin_Name/admin/partials
  */
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 ?>
 
 <div class="wrap">
