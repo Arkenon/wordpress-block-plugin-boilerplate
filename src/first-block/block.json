@@ -16,7 +16,7 @@
 		"default": false
 	  }
   },
-  "textdomain": "first-block",
+  "textdomain": "plugin-name",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"
