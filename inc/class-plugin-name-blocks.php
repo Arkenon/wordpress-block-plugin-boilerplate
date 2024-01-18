@@ -35,7 +35,7 @@ class Plugin_Name_Blocks {
 	 */
 	public function register_plugin_name_blocks(): void {
 
-		//First Block
+		//First Block (or whatever your block name is)
 		register_block_type(
 			PLUGIN_NAME_PLUGIN_PATH. '/build/first-block'
 			/*,
@@ -48,7 +48,7 @@ class Plugin_Name_Blocks {
 	}
 
 	/**
-	 * Callback function for first block
+	 * Callback function for the first block (or whatever your block name is)
 	 *
 	 * @param array $block_attributes Get block attributes from block-name/edit.js
 	 *

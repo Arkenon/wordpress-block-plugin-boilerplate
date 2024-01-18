@@ -65,10 +65,10 @@ class Plugin_Name_Public {
 	/**
 	 * Html render for a block
 	 *
-	 * @param array $path Path of .php file which has html output
+	 * @param string $path Path of .php file which has html output
 	 * @param array $block_attributes Get block attributes from block-name/edit.js
 	 *
-	 * @return string Block's html output
+	 * @return string Html output of a block
 	 * @since    1.0.0
 	 */
 	public function get_rendered_block(string $path, array $block_attributes) : string  {

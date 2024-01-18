@@ -48,7 +48,7 @@ class Plugin_Name_Options {
 	}
 
 	/**
-	 * Register settings for options page
+	 * Register settings for the options page
 	 *
 	 * @since    1.0.0
 	 */
@@ -63,7 +63,7 @@ class Plugin_Name_Options {
 	}
 
 	/**
-	 * Define the options page markup
+	 * Get html output of the options page
 	 *
 	 * @since    1.0.0
 	 */

@@ -23,7 +23,7 @@ use PLUGIN_NAME\Plugin_Name_Core;
 use PLUGIN_NAME\Plugin_Name_Helper;
 
 // Define constants
-$plugin_data = get_file_data( __FILE__, array( 'version'     => 'Version' ) );
+$plugin_data = get_file_data( __FILE__, array( 'version' => 'Version' ) );
 define( 'PLUGIN_NAME_VERSION', $plugin_data['version'] );
 define( 'PLUGIN_NAME_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PLUGIN_NAME_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -37,9 +37,9 @@ require PLUGIN_NAME_PLUGIN_PATH . 'inc/class-plugin-name-helper.php';
  * This action is documented in inc/Activator.php
  * @since    1.0.0
  */
-function activate_plugin_name() {
+function plugin_name_activate() {
 
-	Plugin_Name_Helper::using('inc/class-plugin-name-activator.php');
+	Plugin_Name_Helper::using( 'inc/class-plugin-name-activator.php' );
 
 	Plugin_Name_Activator::activate();
 
@@ -50,9 +50,9 @@ function activate_plugin_name() {
  * This action is documented in inc/Deactivator.php
  * @since    1.0.0
  */
-function deactivate_plugin_name() {
+function plugin_name_deactivate() {
 
-	Plugin_Name_Helper::using('inc/class-plugin-name-deactivator.php');
+	Plugin_Name_Helper::using( 'inc/class-plugin-name-deactivator.php' );
 
 	Plugin_Name_Deactivator::deactivate();
 
@@ -62,14 +62,14 @@ function deactivate_plugin_name() {
  * Register activation and deactivation hooks
  * @since    1.0.0
  */
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'plugin_name_activate' );
+register_deactivation_hook( __FILE__, 'plugin_name_deactivate' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, public-facing site hooks and more...
  */
-Plugin_Name_Helper::using('inc/class-plugin-name-core.php');
+Plugin_Name_Helper::using( 'inc/class-plugin-name-core.php' );
 
 /**
  * Begins execution of the plugin.

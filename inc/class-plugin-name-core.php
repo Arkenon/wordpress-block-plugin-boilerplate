@@ -105,9 +105,9 @@ class Plugin_Name_Core extends Plugin_Name_Loader {
 	 */
 	private function set_block_types(): void {
 
-		$plugin_options = new Plugin_Name_Blocks();
+		$plugin_blocks= new Plugin_Name_Blocks();
 
-		self::add_action( 'plugins_loaded', $plugin_options, 'load_plugin_name_blocks' );
+		self::add_action( 'plugins_loaded', $plugin_blocks, 'load_plugin_name_blocks' );
 
 	}
 
