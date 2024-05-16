@@ -1,5 +1,6 @@
 <?php
 /**
+ * To use this file, you need to add "render": "file:./render.php", to your block.json file.
  * Return html output of your blocks. This file will be used to render a block.
  * Server side rendering operation of a block.
  */

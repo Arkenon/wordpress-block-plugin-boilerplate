@@ -41,11 +41,11 @@ class Plugin_Name_Blocks {
 
 		//First Block (or whatever your block name is)
 		register_block_type(
-			PLUGIN_NAME_PLUGIN_PATH . '/build/first-block',
+			PLUGIN_NAME_PLUGIN_PATH . '/build/first-block'/*,
 			[
 				//Callback function for your block (optional, use this callback if you want to make server side rendering)
 				'render_callback' => [ $this, 'first_block_render_callback' ]
-			]
+			]*/
 		);
 
 	}

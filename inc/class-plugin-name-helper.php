@@ -104,7 +104,7 @@ class Plugin_Name_Helper {
 		$block_data = $block;
 
 		//Include php file which has a variable named $view and equals to html output
-		include BRIKETZ_LMS_PLUGIN_PATH . $path;
+		include PLUGIN_NAME_PLUGIN_PATH . $path;
 
 		return $view;
 

@@ -20,5 +20,4 @@ if($first_attr){
 } else {
 	$view .= __( "First Block: Hello from server side rendering callback function. / Attributes not setted." );
 }
-$view .= __( "First Block: Hello from server side rendering callback function. / Attributes not setted." );
 $view .= '</p>';
