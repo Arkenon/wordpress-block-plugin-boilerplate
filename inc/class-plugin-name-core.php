@@ -34,22 +34,22 @@ class Plugin_Name_Core extends Plugin_Name_Loader {
 		parent::__construct();
 
 		//Include required files (required)
-		self::load_required_dependencies();
+		$this->load_required_dependencies();
 
 		//Load block types (required)
-		self::set_block_types();
+		$this->set_block_types();
 		
 		//Load internationalization functionality (required)
-		self::set_locale();
+		$this->set_locale();
 		
 		//Load admin options functionality (optional)
-		self::set_options();
+		$this->set_options();
 
 		//Defines all hooks for the admin area (optional)
-		self::define_admin_hooks();
+		$this->define_admin_hooks();
 
 		//Defines all hooks for the public area (optional)
-		self::define_public_hooks();
+		$this->define_public_hooks();
 
 	}
 
@@ -91,7 +91,7 @@ class Plugin_Name_Core extends Plugin_Name_Loader {
 
 		$plugin_options = new Plugin_Name_Options();
 
-		self::add_action( 'plugins_loaded', $plugin_options, 'load_plugin_name_options' );
+		$this->add_action( 'plugins_loaded', $plugin_options, 'load_plugin_name_options' );
 
 	}
 
@@ -107,7 +107,7 @@ class Plugin_Name_Core extends Plugin_Name_Loader {
 
 		$plugin_blocks= new Plugin_Name_Blocks();
 
-		self::add_action( 'plugins_loaded', $plugin_blocks, 'load_plugin_name_blocks' );
+		$this->add_action( 'plugins_loaded', $plugin_blocks, 'load_plugin_name_blocks' );
 
 	}
 
@@ -128,7 +128,7 @@ class Plugin_Name_Core extends Plugin_Name_Loader {
 
 		$plugin_i18n = new Plugin_Name_I18n();
 
-		self::add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_name_textdomain' );
+		$this->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_name_textdomain' );
 
 	}
 
@@ -149,10 +149,10 @@ class Plugin_Name_Core extends Plugin_Name_Loader {
 
 		$plugin_admin = new Plugin_Name_Admin();
 
-		self::add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		self::add_action( 'init', $plugin_admin, 'editor_styles' );
-		self::add_action( 'pre_get_posts', $plugin_admin, 'editor_styles' );
-		self::add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+		$this->add_action( 'init', $plugin_admin, 'editor_styles' );
+		$this->add_action( 'pre_get_posts', $plugin_admin, 'editor_styles' );
+		$this->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 	}
 
@@ -171,8 +171,8 @@ class Plugin_Name_Core extends Plugin_Name_Loader {
 		Plugin_Name_Helper::using('public/class-plugin-name-public.php');
 		$plugin_public = new Plugin_Name_Public();
 
-		self::add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		self::add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+		$this->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 	}
 
@@ -183,7 +183,7 @@ class Plugin_Name_Core extends Plugin_Name_Loader {
 	 */
 	public function run(): void {
 
-		self::run_plugin();
+		$this->run_plugin();
 
 	}
 

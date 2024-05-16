@@ -12,6 +12,8 @@
 
 namespace PLUGIN_NAME;
 
+use WP_Block;
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Plugin_Name_Public {
@@ -65,16 +67,18 @@ class Plugin_Name_Public {
 	/**
 	 * Html render for a block
 	 *
-	 * @param string $path Path of .php file which has html output
-	 * @param array $block_attributes Get block attributes from block-name/edit.js
+	 * @param string $path Path for view page
+	 * @param array $block_attributes Get block content
+	 * @param string $content Get block content
+	 * @param WP_Block|null $block Get block instance
 	 *
 	 * @return string Html output of a block
 	 * @since    1.0.0
 	 */
-	public function get_rendered_block(string $path, array $block_attributes) : string  {
+	public function get_rendered_block(string $path, array $block_attributes = [], string $content = '', WP_Block $block = null) : string  {
 
 		//Return html output of the block
-		return Plugin_Name_Helper::return_view( $path, $block_attributes );
+		return Plugin_Name_Helper::return_view( $path,  $block_attributes, $content, $block );
 
 	}
 

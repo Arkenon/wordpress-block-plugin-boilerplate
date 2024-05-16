@@ -8,16 +8,17 @@
  * @subpackage Plugin_Name/public/partials
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+} // Exit if accessed directly
 
-$first_attr = $block_attributes['firstAttr'] ?? '';
+$first_attr = $block_attributes['firstAttr'] ?? false;
 
-$view = '<p '.get_block_wrapper_attributes().'>';
-
-if($first_attr):
-  
-$view .= __("First Block: Hello from server side rendering...");
-
-endif;
-
-$view .='</p>';
+$view = '<p ' . get_block_wrapper_attributes() . '>';
+if($first_attr){
+	$view .= __( "First Block: Hello from server side rendering callback function. / Attributes setted." );
+} else {
+	$view .= __( "First Block: Hello from server side rendering callback function. / Attributes not setted." );
+}
+$view .= __( "First Block: Hello from server side rendering callback function. / Attributes not setted." );
+$view .= '</p>';

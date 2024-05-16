@@ -12,6 +12,8 @@
 
 namespace PLUGIN_NAME;
 
+use WP_Block;
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Plugin_Name_Helper {
@@ -21,10 +23,10 @@ class Plugin_Name_Helper {
 	 *
 	 * @param string $name $_POST['name'] or $_GET['name']
 	 *
-	 * @return mixed|null $_POST['name']/$_GET['name'] or null when !isset($_POST['name']/$_GET['name'])
+	 * @return string|int|null $_POST['name']/$_GET['name'] or null when !isset($_POST['name']/$_GET['name'])
 	 * @since 1.0.0
 	 */
-	public static function sanitize( string $name, string $method, string $type = "" ) {
+	public static function sanitize( string $name, string $method, string $type = "" ): string|int|null {
 
 		$value = '';
 
@@ -77,7 +79,7 @@ class Plugin_Name_Helper {
 	 */
 	public static function print_view( string $path ) : void {
 
-		include_once PLUGIN_NAME_PLUGIN_PATH . $path;
+		include PLUGIN_NAME_PLUGIN_PATH . $path;
 
 	}
 
@@ -86,22 +88,23 @@ class Plugin_Name_Helper {
 	 * To return a view uses include_once() function
 	 *
 	 * @param string $path Path for view page
-	 * @param array $block_attributes Get block attributes from block-name/edit.js
+	 * @param array $block_attributes Get block content
+	 * @param string $content Get block content
+	 * @param WP_Block|null $block Get block instance
 	 *
 	 * @return string $view
-	 * @var string $view html output
 	 * @since 1.0.0
-	 *
 	 */
-	public static function return_view( string $path, array $block_attributes = [] ): string {
+	public static function return_view( string $path, array $block_attributes = [], string $content = '', WP_Block $block = null ): string {
 
 		$view = "";
 
 		//Get attributes
-		extract($block_attributes);
+		extract( $block_attributes );
+		$block_data = $block;
 
 		//Include php file which has a variable named $view and equals to html output
-		include_once PLUGIN_NAME_PLUGIN_PATH . $path;
+		include BRIKETZ_LMS_PLUGIN_PATH . $path;
 
 		return $view;
 
