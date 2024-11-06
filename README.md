@@ -1,5 +1,8 @@
 # Wordpress Block Plugin Boilerplate
 
+This plugin is no longer maintained. You can use [Light Wp Plugin Boilerplate](https://github.com/Arkenon/light-wp-plugin-boilerplate) or [[Clean Wp Plugin Boilerplate](https://github.com/Arkenon/clean-wp-plugin-boilerplate)] instad of this plugin.
+
+
 Plugin boilerplate for Gutenberg blocks developers.
 
 This boilerplate is based on [Wordpress Create Block](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/)  and [Wordpress Plugin Boilerplate](https://github.com/DevinVinson/WordPress-Plugin-Boilerplate)
